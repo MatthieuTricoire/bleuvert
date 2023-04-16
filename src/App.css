@@ -1,0 +1,35 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* VARIABLES */
+:root {
+  /* Colors */
+  --color-primary-100 : #f7f7f7
+  --color-primary-200 : #dfdfdf;
+  --color-primary-300 : #6c757d
+  --color-primary-500 : #374a46
+  --color-primary-900 : black;
+  --color-accent : #b05138
+
+  /* Fonts sizes */
+  --fs-m: 1.188 rem;
+  --fs-l: 1.5 rem;
+  --fs-xl: 2.5 rem;
+
+  /* Fonts family */
+  --ff-primary : Railway, sans-serif;
+
+  /* Fonts weight */
+  --fw-regular : 400;
+  --fw-thin : 200;
+  --fw-bold : 900;
+
+
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
