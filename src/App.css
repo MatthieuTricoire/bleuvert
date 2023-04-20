@@ -1,35 +1,111 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 /* VARIABLES */
 :root {
   /* Colors */
-  --color-primary-100 : #f7f7f7
-  --color-primary-200 : #dfdfdf;
-  --color-primary-300 : #6c757d
-  --color-primary-500 : #374a46
-  --color-primary-900 : black;
-  --color-accent : #b05138
+  --color-primary-100: #f7f7f7;
+  --color-primary-200: #dfdfdf;
+  --color-primary-300: #6c757d;
+  --color-primary-500: #374a46;
+  --color-primary-900: black;
+  --color-accent: #b05138;
 
   /* Fonts sizes */
-  --fs-m: 1.188 rem;
-  --fs-l: 1.5 rem;
-  --fs-xl: 2.5 rem;
+  --fs-m: 19px;
+  --fs-l: 24px;
+  --fs-xl: 40px;
 
   /* Fonts family */
-  --ff-primary : Railway, sans-serif;
+  --ff-primary: Railway, sans-serif;
 
   /* Fonts weight */
-  --fw-regular : 400;
-  --fw-thin : 200;
-  --fw-bold : 900;
+  --fw-regular: 400;
+  --fw-thin: 200;
+  --fw-bold: 900;
+  --fw-semibold: 700;
+}
 
+/* General */
 
-  max-width: 1280px;
+html,
+body {
+  height: 100%;
+}
+
+#root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* .test {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+} */
+
+body {
+  max-width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1 {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-regular);
+}
+
+h2 {
+  font-size: var(--fs-l);
+  font-weight: var(--fw-regular);
+}
+
+.title {
+  margin-top: 80px;
+  margin-bottom: 40px;
   text-align: center;
+}
+
+.button {
+  cursor: pointer;
+  text-align: center;
+  color: white;
+  border-radius: 5px;
+  padding: 1em;
+  background: var(--color-accent);
+  border: none;
+  transition: scale 100ms ease-out;
+  transition: opacity 100ms;
+}
+
+.button:hover {
+  opacity: 90%;
+}
+
+.button:active {
+  scale: 1.01;
+}
+/* Utility */
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding-inline: 10px;
+}
+
+.container-component {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding-inline: 10px;
+  flex: 1;
+}
+
+.not-displayed {
+  display: none;
 }

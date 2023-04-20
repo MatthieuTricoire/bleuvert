@@ -1,23 +1,9 @@
 import axios from "axios";
 import { FC, useEffect, useState } from "react";
 import ArticleItem from "../../components/ArticleItems";
+import "./index.css";
 
-export interface IArticle {
-  id: number;
-  attributes: {
-    Titre: string;
-    SousTitre: string;
-    Surface: string;
-    Categories: string;
-    Description: string;
-    Localisation: string;
-    createdAt: Date;
-    updatedAt: Date;
-    publishedAt: Date;
-    PhotoPrincipale: {};
-    Photos: {};
-  };
-}
+import { IArticle } from "../../Interface";
 
 interface homeProps {}
 
@@ -41,12 +27,11 @@ const Home: FC<homeProps> = ({}) => {
           `http://localhost:1337/api/articles?populate=PhotoPrincipale`,
           {
             headers: {
-              Authorization:
-                "Bearer daabd763aa5df4d9a1e0fe66903a0d3ec34333a35ecce96d69079c835440614851e36534fe9729488f5ed74af007f7550fdd7c6f60225e773575f8c370717647bb88a2319d1f26adfcc53e9d6ac5900722afea5ff581e9af7db3de32af36d0e1e2d1c35997006d83d1d989dc770c2b02bf46eba9228cbe26281fa38a22e17b43",
+              Authorization: `Bearer ${import.meta.env.VITE_STRAPI_API}`,
             },
           }
         );
-        setArticles(response.data.data);
+        setArticles(response.data.data as IArticle[]);
         setIsLoading(false);
       } catch (error) {
         let message = "Unknow error";
@@ -60,8 +45,8 @@ const Home: FC<homeProps> = ({}) => {
   return isLoading ? (
     <div>Loading</div>
   ) : (
-    <div className="App">
-      <h1>Liste des articles</h1>
+    <div className="container-component">
+      <h1 className="title">RÉALISATIONS</h1>
       <div>
         <ul className="filter-nav">
           <li
@@ -70,23 +55,26 @@ const Home: FC<homeProps> = ({}) => {
             }`}
             onClick={() => handleCategory("Appartement")}
           >
-            <div className="">Appartement</div>
+            <p>APPARTEMENT</p>
           </li>
+          /
           <li
             className={`${categorySelected === "Maison" ? "selected" : ""}`}
             onClick={() => handleCategory("Maison")}
           >
-            Maison
+            MAISON
           </li>
+          /
           <li
             className={`${categorySelected === "Toto" ? "selected" : ""}`}
             onClick={() => handleCategory("Toto")}
           >
-            Toto
+            LIEU PULIC
           </li>
         </ul>
       </div>
       <div className="articles-wrapper">
+        {/*todo Faire un check si aucun article appartient à cette categorie */}
         {!articles ? (
           <p>Aucun article</p>
         ) : (

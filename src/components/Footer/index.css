@@ -1,0 +1,38 @@
+.footer {
+  height: 100px;
+  width: 100%;
+  margin-top: 50px;
+  background-color: var(--color-accent);
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.footer__centralPart {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.footer__centralPart img {
+  height: 50%;
+}
+
+.footer__centralPart__insta {
+  height: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__centralPart__insta:hover {
+  opacity: 0.8;
+}
+
+.footer__centralPart__insta:active {
+  scale: 1.1;
+}
