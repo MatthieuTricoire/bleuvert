@@ -43,7 +43,7 @@ const Home: FC<homeProps> = ({}) => {
   }, []);
 
   return isLoading ? (
-    <div>Loading</div>
+    <div className="container-component">Loading</div>
   ) : (
     <div className="container-component">
       <h1 className="title">RÉALISATIONS</h1>

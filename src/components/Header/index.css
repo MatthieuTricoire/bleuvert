@@ -9,18 +9,32 @@ header {
 
 .logo {
   /* width: 40%; */
-  width: 300px;
+  width: 400px;
   cursor: pointer;
 }
 
-.main_pages {
-  display: flex;
-  gap: 30px;
+.logoMobile {
+  /* logo with no text to display on small devices */
+  display: none;
 }
 
-label,
-#toggle {
+.nav-menu {
+  position: relative;
+}
+
+.nav-menu ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.hamburger {
   display: none;
+  cursor: pointer;
+}
+
+.hamburger:hover {
+  color: "red";
 }
 
 .nav__item:hover {
@@ -39,22 +53,50 @@ label,
 /* Responsive */
 
 @media screen and (max-width: 800px) {
-  label {
-    width: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    font-size: 40px;
-    color: red;
-    cursor: pointer;
+  .logo {
+    width: 350px;
   }
 
-  .main_pages {
-    display: none;
+  .hamburger {
+    display: block;
   }
 
-  #toggle:checked + .main_pages {
+  .nav-menu ul {
+    position: absolute;
     display: flex;
+    flex-direction: column;
+    top: 50px;
+    background-color: white;
+    opacity: 0.9;
+    translate: 500px;
+    right: 0px;
+    z-index: 9999;
+    transition: all 0.2s ease-out;
+    width: 100dvw;
+    height: calc(100vh - 70px);
+    border: solid 1px blue;
+  }
+
+  .nav-menu li {
+    font-size: 1.4rem;
+  }
+
+  .nav-menu.expanded ul {
+    translate: 0px;
+  }
+
+  .nav-menu li {
+    text-align: right;
+  }
+
+  @media screen and (max-width: 400px) {
+    .logo {
+      display: none;
+    }
+
+    .logoMobile {
+      display: inline;
+      width: 200px;
+    }
   }
 }

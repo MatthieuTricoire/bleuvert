@@ -44,17 +44,14 @@ textarea:focus {
 
 /* Map section*/
 
-.sectionmap {
-}
-
 .map {
   display: flex;
-
   justify-content: center;
 }
 
 @media screen and (max-width: 800px) {
   .form-wrapper {
+    width: 70%;
     grid-template-columns: 1fr;
   }
 

@@ -15,9 +15,6 @@
   margin-bottom: 40px;
 }
 
-.article__photo {
-}
-
 .article h3 {
   text-transform: uppercase;
   color: var(--color-primary-300);
@@ -67,6 +64,10 @@
 /* Responsive */
 
 @media screen and (max-width: 800px) {
+  .article {
+    width: 95%;
+  }
+
   .article__info {
     flex-direction: column;
     gap: 20px;
@@ -75,5 +76,7 @@
   .article__info__details {
     flex-direction: row;
     justify-content: center;
+    text-align: center;
+    gap: 30px;
   }
 }

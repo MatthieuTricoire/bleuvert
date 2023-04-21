@@ -20,34 +20,19 @@ const Contact: FC<contactProps> = ({}) => {
             {/* honey pot */}
             <input type="text" name="_honey" className="not-displayed" />
             <label htmlFor="firstname">Prénom</label>
-            <input
-              type="text"
-              id="firstname"
-              name="firstname"
-              placeholder="Prénom"
-            />
+            <input type="text" id="firstname" name="firstname" placeholder="" />
           </div>
           <div className="input-grid">
             <label htmlFor="lastname">Nom</label>
-            <input
-              type="text"
-              id="lastname"
-              name="lastname"
-              placeholder="Nom"
-            />
+            <input type="text" id="lastname" name="lastname" placeholder="" />
           </div>
           <div className="input-grid">
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="email" />
+            <input type="email" id="email" name="" placeholder="" />
           </div>
           <div className="input-grid">
             <label htmlFor="phone">Télephone</label>
-            <input
-              type="text"
-              id="phone"
-              name="phone"
-              placeholder="0667074028"
-            />
+            <input type="text" id="phone" name="phone" placeholder="" />
           </div>
           <textarea className="span-2" name="message" />
           <button className="button span-2" type="submit">

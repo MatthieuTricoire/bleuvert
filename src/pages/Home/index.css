@@ -3,3 +3,11 @@
   gap: 20px;
   margin-bottom: 40px;
 }
+
+/* Responsive */
+
+@media screen and (max-width: 400px) {
+  .filter-nav {
+    gap: 5px;
+  }
+}

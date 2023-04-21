@@ -10,9 +10,10 @@ interface indexProps {
 const Contact: FC<indexProps> = ({ firstname, lastname, phone }) => {
   return (
     <div className="contact-container">
-      <p>
-        {firstname} {lastname}
-      </p>
+      <div>
+        <span>{firstname}</span>
+        <span>{lastname}</span>
+      </div>
       <p>{phone}</p>
     </div>
   );

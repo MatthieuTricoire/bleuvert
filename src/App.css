@@ -64,6 +64,11 @@ h2 {
   font-weight: var(--fw-regular);
 }
 
+h3 {
+  font-size: var(--fs-m);
+  font-weight: var(--fw-regular);
+}
+
 .title {
   margin-top: 80px;
   margin-bottom: 40px;
@@ -106,6 +111,14 @@ h2 {
   flex: 1;
 }
 
+.displayed {
+  display: flex;
+}
+
 .not-displayed {
   display: none;
+}
+
+.no-scroll {
+  overflow-y: hidden;
 }

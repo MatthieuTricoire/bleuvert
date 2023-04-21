@@ -1,6 +1,7 @@
 import { FC } from "react";
 import "./index.css";
-import secondaryLogo from "../../assets/Logo_NoText.svg";
+import secondaryLogo from "../../assets/Logo_NoText_White.svg";
+import secondaryLogoMobile from "../../assets/Favicon.svg";
 
 import { BsInstagram } from "react-icons/bs";
 import { Link } from "react-router-dom";
@@ -11,12 +12,22 @@ interface footerProps {}
 const Footer: FC<footerProps> = ({}) => {
   return (
     <footer className="footer container">
-      <div>
+      <div className="footer__sidePart">
         <Contact firstname="Laura" lastname="Terneyre" phone="06.73.31.89.09" />
       </div>
 
       <div className="footer__centralPart">
-        <img src={secondaryLogo} alt="" color="white" />
+        <img
+          src={secondaryLogo}
+          alt=""
+          color="white"
+          className="footer__logo"
+        />
+        <img
+          src={secondaryLogoMobile}
+          alt=""
+          className="footer__logo--mobile"
+        />
         <Link
           to={`https://www.instagram.com/studio_bleuvert/`}
           className="footer__centralPart__insta"
@@ -25,7 +36,7 @@ const Footer: FC<footerProps> = ({}) => {
         </Link>
       </div>
 
-      <div>
+      <div className="footer__sidePart">
         <Contact
           firstname="Chloé"
           lastname="Bordenave"
