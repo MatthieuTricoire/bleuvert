@@ -1,6 +1,7 @@
 import "./index.css";
 import { FC, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import NavItem from "../NavItem";
 
 // import ReactIcons
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -26,12 +27,15 @@ const Header: FC<headerProps> = ({}) => {
 
   return (
     <header className="container">
+      {/* Logo large screens */}
       <img
         onClick={() => navigate("/")}
         src={logo}
         alt="logo"
         className="logo"
       />
+
+      {/* Logo small screens */}
       <img
         onClick={() => navigate("/")}
         src={logoMobile}
@@ -39,64 +43,44 @@ const Header: FC<headerProps> = ({}) => {
         className="logoMobile"
       />
 
+      {/* Navbar */}
       <nav>
         <div className={`nav-menu ${expandedMenu ? "expanded" : ""}`}>
           <ul>
-            <li>
-              <Link
-                className={cx("nav__item", {
-                  "nav__item--active": pathname === "/",
-                })}
-                to="/"
-                onClick={() => {
-                  setExpandedMenu(false);
-                }}
-              >
-                Projets
-              </Link>
-            </li>
-            <li>
-              <Link
-                className={cx("nav__item", {
-                  "nav__item--active": pathname === "/prestation",
-                })}
-                to="/prestation"
-                onClick={() => setExpandedMenu(false)}
-              >
-                Prestations
-              </Link>
-            </li>
-            <li>
-              <Link
-                className={cx("nav__item", {
-                  "nav__item--active": pathname === "/about",
-                })}
-                to="/about"
-                onClick={() => setExpandedMenu(false)}
-              >
-                À propos
-              </Link>
-            </li>
-            <li>
-              <Link
-                className={cx("nav__item", {
-                  "nav__item--active": pathname === "/contact",
-                })}
-                to="/contact"
-                onClick={() => setExpandedMenu(false)}
-              >
-                Contact
-              </Link>
-            </li>
-          </ul>
-
-          <div className="hamburger">
-            <GiHamburgerMenu
-              onClick={() => {
-                setExpandedMenu(!expandedMenu);
-              }}
+            <NavItem
+              itemName="Projets"
+              pathname={pathname}
+              setState={setExpandedMenu}
+              linkTo="/"
             />
-          </div>
+            <NavItem
+              itemName="Prestation"
+              pathname={pathname}
+              setState={setExpandedMenu}
+              linkTo="/prestation"
+            />
+            <NavItem
+              itemName="À propos"
+              pathname={pathname}
+              setState={setExpandedMenu}
+              linkTo="/about"
+            />
+            <NavItem
+              itemName="Contact"
+              pathname={pathname}
+              setState={setExpandedMenu}
+              linkTo="/contact"
+            />
+          </ul>
+        </div>
+        {/* Hamburger icon  */}
+        <div className="hamburger">
+          <GiHamburgerMenu
+            size={30}
+            onClick={() => {
+              setExpandedMenu(!expandedMenu);
+            }}
+          />
         </div>
       </nav>
     </header>

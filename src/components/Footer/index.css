@@ -1,7 +1,7 @@
 .footer {
   height: 100px;
   width: 100%;
-  margin-top: 50px;
+  margin-top: 20px;
   background-color: var(--color-accent);
   display: flex;
   justify-content: space-between;
