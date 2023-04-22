@@ -80,3 +80,9 @@
     gap: 30px;
   }
 }
+
+@media screen and (max-width: 599px) {
+  .article__img__col {
+    width: 100%;
+  }
+}

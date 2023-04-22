@@ -13,6 +13,25 @@ const Article = () => {
 
   const [articleData, setarticleData] = useState<IArticle>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [colNb, setColNb] = useState<number>(2);
+
+  useEffect(() => {
+    const test = window.innerWidth;
+    const handleResize = () => {
+      const width = window.innerWidth;
+      console.log(width);
+      if (width <= 600) {
+        setColNb(1);
+      } else {
+        setColNb(2);
+      }
+    };
+    handleResize();
+    // window.addEventListener("resize", handleResize);
+    // return () => {
+    //   window.removeEventListener("resize", handleResize);
+    // };
+  }, []);
 
   useEffect(() => {
     const fetchProject = async () => {
@@ -31,11 +50,12 @@ const Article = () => {
   }, []);
 
   // Parse the array of images to split them in two tables depending of the height of each table
-  const assignColImages = (X: number, images: IPhoto[]): IPhoto[][] => {
+  // const assignColImages = (X: number, images: IPhoto[]): IPhoto[][] => {
+  const assignColImages = (images: IPhoto[]): IPhoto[][] => {
     // Initialize X cells to 0
-    const sumRatioImgArr = Array<number>(X).fill(0);
+    const sumRatioImgArr = Array<number>(colNb).fill(0);
     // Initialize X empty array
-    const result: IPhoto[][] = Array.from(Array<IPhoto[]>(X), () => []);
+    const result: IPhoto[][] = Array.from(Array<IPhoto[]>(colNb), () => []);
 
     if (images) {
       images.forEach((image) => {
@@ -51,7 +71,7 @@ const Article = () => {
   };
 
   if (!articleData?.attributes.Photos.data) return;
-  const cols = assignColImages(2, articleData?.attributes.Photos.data);
+  const cols = assignColImages(articleData?.attributes.Photos.data);
 
   const fillImage = (array: IPhoto[], index: number) => {
     return (
