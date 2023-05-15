@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
+import "./index.css";
+
 // Interfaces import
 import { IArticle } from "../../Interface";
 import { IPhoto } from "../../Interface";
 
-import "./index.css";
+// Componentes imports
+import Modal from "../../components/Modal";
 
 const Article = () => {
   const { id } = useParams();
@@ -14,6 +17,7 @@ const Article = () => {
   const [articleData, setarticleData] = useState<IArticle>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [colNb, setColNb] = useState<number>(2);
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
 
   useEffect(() => {
     const test = window.innerWidth;
